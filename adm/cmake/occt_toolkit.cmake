@@ -17,7 +17,7 @@ endif()
 foreach (OCCT_PACKAGE ${USED_PACKAGES})
   
   # TKService contains platform-dependent packages: Xw and WNT
-  if ((WIN32 AND "${OCCT_PACKAGE}" STREQUAL "Xw") OR (NOT WIN32 AND "${OCCT_PACKAGE}" STREQUAL "WNT"))
+  if ((WIN32 AND "${OCCT_PACKAGE}" STREQUAL "Xw") OR (NOT WIN32 AND "${OCCT_PACKAGE}" STREQUAL "WNT") OR (TKSERVICE_DISABLE_FONT AND "${OCCT_PACKAGE}" STREQUAL "Font"))
     # do nothing
   else()
 

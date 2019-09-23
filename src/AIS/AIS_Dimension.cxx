@@ -23,8 +23,10 @@
 #include <BRepBndLib.hxx>
 #include <Bnd_Box.hxx>
 #include <ElCLib.hxx>
+#ifndef TKSERVICE_DISABLE_FONT
 #include <Font_BRepFont.hxx>
 #include <Font_BRepTextBuilder.hxx>
+#endif
 #include <GC_MakeCircle.hxx>
 #include <Geom_Line.hxx>
 #include <GeomAdaptor_Curve.hxx>
