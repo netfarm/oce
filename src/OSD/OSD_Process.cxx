@@ -30,6 +30,9 @@ const OSD_WhoAmI Iam = OSD_WProcess;
 #include <sys/time.h>
 #include <pwd.h>       // For command getpwuid
 #include <unistd.h>
+#ifdef __APPLE__
+#include "TargetConditionals.h"
+#endif
 
 OSD_Process::OSD_Process(){
 }
@@ -38,7 +41,11 @@ OSD_Process::OSD_Process(){
 Standard_Integer OSD_Process::Spawn (const TCollection_AsciiString& cmd,
 			 const Standard_Boolean /*ShowWindow*/)
 {
+#if defined(__APPLE__) && TARGET_OS_IPHONE
+ return -1;
+#else
  return system(cmd.ToCString());
+#endif
 }
 
 
